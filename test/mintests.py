@@ -9,6 +9,8 @@ class MinTests(unittest.TestCase):
 
     def test_min_keys(self):
         """
+        verify that you can find the minimum value burried deep in the 
+        dictionary.
         """
         dictionary = {
                         1: { 2: {}, 3: {} },
@@ -22,6 +24,8 @@ class MinTests(unittest.TestCase):
 
     def test_min_non_recursive_keys(self):
         """
+        verify that you can find the minimum value without recursion at the 
+        top level.
         """
         dictionary = {
                         1: { 2: {}, 3: {} },

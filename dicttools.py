@@ -1,4 +1,5 @@
 """
+helper dictionary methods
 """
 
 def filter(function, dictionary, recursive=True):
@@ -130,4 +131,5 @@ def max(dictionary, key=None, recursive=True):
             maximum = current_max
 
     return maximum
+
 
