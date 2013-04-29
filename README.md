@@ -18,12 +18,16 @@ or install directly from github with:
 usage
 -----
 
+```{r basicconsole}
 > import dicttools
 > dicttools.filter(lambda key, value: key > 2, { 1: None, 2:{ 3: None }, 4:{}})
 {4: {}}
+```
 
+```{r basicconsole}
 > dicttools.map(lambda key, value: (key, True), { 1: None, 2: 23, 4:{}})
 {1: True, 2: True, 4: True}
+```
 
 
 
