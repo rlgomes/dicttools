@@ -1,9 +1,9 @@
 """
 verify that the filter() method behaves as expected
 """
-import unittest
 
 import dicttools
+import unittest
 
 class ReduceTests(unittest.TestCase):
 
@@ -18,9 +18,7 @@ class ReduceTests(unittest.TestCase):
 
         
         # filter out the odd elements
-        actual = dicttools.reduce(lambda acc, key, _: acc + key,
-                                  dictionary,
-                                  initializer=0)
+        actual = dicttools.reduce(lambda acc, key, _: acc + key, dictionary, 0)
         self.assertEquals(18, actual, msg="%s != %s" % (actual, 18))
 
     def test_reduce_calculate_debt(self):
@@ -29,12 +27,8 @@ class ReduceTests(unittest.TestCase):
         users
         """
         dictionary = {
-                        'user1': {
-                            'transactions' : [ -100, 50, 25 ]
-                         },
-                        'user2': {
-                            'transactions' : [ -200, 200, -100 ]
-                         },
+                        'user1': { 'transactions' : [ -100, 50, 25 ] },
+                        'user2': { 'transactions' : [ -200, 200, -100 ] },
                      }
         
         def calculate_debt(acc, key, value):
@@ -49,6 +43,6 @@ class ReduceTests(unittest.TestCase):
             return acc
         
         # filter out the odd elements
-        actual = dicttools.reduce(calculate_debt, dictionary, initializer=0)
+        actual = dicttools.reduce(calculate_debt, dictionary, 0)
         self.assertEquals(-125, actual, msg="%s != %s" % (actual, -125))
 

@@ -1,9 +1,10 @@
 """
 verify that the filter() method behaves as expected
 """
-import unittest
 
 import dicttools
+import time
+import unittest
 
 class FilterTests(unittest.TestCase):
 
@@ -47,6 +48,4 @@ class FilterTests(unittest.TestCase):
                                   dictionary)
 
         self.assertEquals(expected, actual, msg="%s != %s" % (expected, actual))
-
-
 

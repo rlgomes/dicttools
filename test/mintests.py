@@ -1,9 +1,9 @@
 """
 verify that the filter() method behaves as expected
 """
-import unittest
 
 import dicttools
+import unittest
 
 class MinTests(unittest.TestCase):
 
@@ -29,7 +29,7 @@ class MinTests(unittest.TestCase):
         """
         dictionary = {
                         1: { 2: {}, 3: {} },
-                        2: { 4: {}, 6: {} },
+                        2: { 4: {}, -1: {} },
                      }
 
         

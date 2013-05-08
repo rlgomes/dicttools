@@ -1,9 +1,9 @@
 """
 verify that the filter() method behaves as expected
 """
-import unittest
 
 import dicttools
+import unittest
 
 class MaxTests(unittest.TestCase):
 
