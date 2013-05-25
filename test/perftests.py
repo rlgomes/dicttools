@@ -3,6 +3,7 @@ verify that the filter() method behaves as expected
 """
 
 import dicttools
+import itertools
 import time
 import unittest
 
@@ -78,4 +79,41 @@ class PerfTests(unittest.TestCase):
         dictionary_elapsed = time.time() - start
         print(' dict map(recursive=False) is %2.2fx slower than list map' % \
                                              (dictionary_elapsed/list_elapsed))
+
+    def test_intersect_performance(self):
+        total = 20000
+        items1 = [ (x, float(x)) for x in range(0, total) ]
+        items2 = [ (x, float(x)) for x in range(0, total) ]
+        
+        dict1 = dict(items1)
+        dict2 = dict(items1)
+
+        start = time.time()
+        dicttools.intersect(dict1, dict2)
+        dictionary_elapsed = time.time() - start
+
+        start = time.time()
+        [ filter(lambda element: element in items2, items1) ] 
+        list_elapsed = time.time() - start
+        print('\n dict intersect is %2.2fx slower than list intersect' % \
+                                             (dictionary_elapsed/list_elapsed))
+
+    def test_union_performance(self):
+        total = 20000
+        items1 = [ (x, float(x)) for x in range(0, total) ]
+        items2 = [ (x, float(x)) for x in range(0, total) ]
+        
+        dict1 = dict(items1)
+        dict2 = dict(items1)
+
+        start = time.time()
+        dicttools.union(dict1, dict2)
+        dictionary_elapsed = time.time() - start
+
+        start = time.time()
+        set(itertools.chain(items1, items2))
+        list_elapsed = time.time() - start
+        print('\n dict union is %2.2fx slower than list union' % \
+                                             (dictionary_elapsed/list_elapsed))
+
 
